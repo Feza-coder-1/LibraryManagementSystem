@@ -1,4 +1,5 @@
 public class Magazine extends LibraryItem implements Loanable{
+    boolean isLoaned = false;
     public Magazine(String title, String author){
         super(title,author);
     }
@@ -8,7 +9,13 @@ public class Magazine extends LibraryItem implements Loanable{
     }
     @Override
     public void loanItem(){
-        System.out.println("The magazine which loaned is : "+getTitle()+ " And the author is "+getAuthor());
+        if(!isLoaned) {
+            System.out.println("The magazine which loaned is : "+getTitle()+ " And the author is "+getAuthor());
+            isLoaned = true;
+        } else {
+            System.out.println(getTitle()+" is already loaned");
+        }
+
     }
     @Override
     public void returnItem(){
