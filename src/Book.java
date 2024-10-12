@@ -23,7 +23,12 @@ public class Book extends LibraryItem implements Loanable {
 
     @Override
     public void returnItem(){
-        System.out.println("The book which returned is : "+getTitle()+ " And the author is "+getAuthor());
+        if(isLoaned) {
+            System.out.println("The book which returned is : "+getTitle()+ " And the author is "+getAuthor());
+        } else {
+            System.out.println(getTitle()+" is not yet loaned");
+        }
+
 
     }
 }
