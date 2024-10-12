@@ -47,7 +47,19 @@ public abstract class LibraryItem {
         switch (type) {
             case "Book":
                 libraryItem = new Book(title, author);
+                boolean isloaned = Boolean.parseBoolean(fields[3]);
+                ((Book) libraryItem).setLoaned(isloaned);
+                break;
+            case "Magazine":
+                libraryItem = new Magazine(title, author);
+                isloaned = Boolean.parseBoolean(fields[3]);
+                ((Book) libraryItem).setLoaned(isloaned);
+                break;
+            case "Newspaper":
+                libraryItem = new Newspaper(title, author);
+                break;
         }
+        return libraryItem;
     }
 
     @Override
