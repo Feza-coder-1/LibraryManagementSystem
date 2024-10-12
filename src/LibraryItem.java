@@ -34,6 +34,22 @@ public abstract class LibraryItem {
 
     public abstract void displayInfo();
 
+    public abstract String getCSVformat();
+
+    public LibraryItem getItem(String line) {
+        String[] fields = line.split(",");
+        String type = fields[0];
+        String title = fields[1];
+        String author = fields[2];
+
+        LibraryItem libraryItem = null;
+
+        switch (type) {
+            case "Book":
+                libraryItem = new Book(title, author);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
